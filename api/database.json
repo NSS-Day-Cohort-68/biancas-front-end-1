@@ -1,25 +1,67 @@
 {
   "users": [
     {
+      "id": 1,
       "firstName": "Admina",
       "lastName": "Strator",
       "userName": "Administrator",
       "email": "admina@strator.comx",
       "address": "101 Main Street",
-      "isAdmin": true,
-      "id": 1
+      "isAdmin": true
     },
     {
+      "id": 2,
       "firstName": "Notan",
       "lastName": "Admin",
       "userName": "NotAnAdmin",
       "email": "notan@admin.comx",
       "address": "102 4th Street",
-      "isAdmin": false,
-      "id": 2
+      "isAdmin": false
     }
   ],
-  "bikes": [],
-  "bikeTypes": [],
-  "workOrders": []
+
+  "bikeTypes": [
+    {
+      "id": 1,
+      "name": "Mountain Bike"
+    },
+    {
+      "id": 2,
+      "name": "Road Bike"
+    }
+  ],
+
+  "bikes": [
+    {
+      "id": 1,
+      "brand": "VelocityCruiser",
+      "color": "Red",
+      "userId": 1,
+      "bikeTypeId": 1
+    },
+    {
+      "id": 2,
+      "brand": "AeroBlitzBikes",
+      "color": "Blue",
+      "userId": 2,
+      "bikeTypeId": 2
+    }
+  ],
+
+  "workOrders": [
+    {
+      "id": 1,
+      "dateInitiated": "2024-01-23",
+      "dateCompleted": "2024-01-25",
+      "description": "Tire replacement",
+      "bikeId": 1
+    },
+    {
+      "id": 2,
+      "dateInitiated": "2024-01-24",
+      "dateCompleted": "",
+      "description": "Chain repair",
+      "bikeId": 2
+    }
+  ]
 }
