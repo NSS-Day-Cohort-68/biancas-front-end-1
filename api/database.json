@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "firstName": "Admina",
+      "lastName": "Strator",
+      "userName": "Administrator",
+      "email": "admina@strator.comx",
+      "address": "101 Main Street",
+      "isAdmin": true,
+      "id": 1
+    },
+    {
+      "firstName": "Notan",
+      "lastName": "Admin",
+      "userName": "NotAnAdmin",
+      "email": "notan@admin.comx",
+      "address": "102 4th Street",
+      "isAdmin": false,
+      "id": 2
+    }
+  ],
+  "bikes": [],
+  "bikeTypes": [],
+  "workOrders": []
+}
