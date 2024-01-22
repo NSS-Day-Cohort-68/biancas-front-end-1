@@ -22,7 +22,12 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const getInventory = () => {
     //implement functionality here....
     getBikesInShopCount().then((bikeArray) => setInventory(bikeArray))
-  };
+  }; 
+
+  useEffect(() => {
+    getInventory()
+
+  }, [])
 
   useEffect(() => {
     loggedInUser && getInventory();
