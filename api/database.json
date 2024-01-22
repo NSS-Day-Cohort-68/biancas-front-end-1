@@ -51,14 +51,14 @@
   "workOrders": [
     {
       "id": 1,
-      "dateInitiated": "2024-01-23",
-      "dateCompleted": "2024-01-25",
+      "dateInitiated": "2024-01-23T08:30:00Z",
+      "dateCompleted": "2024-01-25T14:45:00Z",
       "description": "Tire replacement",
       "bikeId": 1
     },
     {
       "id": 2,
-      "dateInitiated": "2024-01-24",
+      "dateInitiated": "2024-01-24T10:15:00Z",
       "dateCompleted": "",
       "description": "Chain repair",
       "bikeId": 2
