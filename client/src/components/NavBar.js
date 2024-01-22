@@ -14,7 +14,7 @@ import {
 import { getBikesInShopCount } from "../managers/bikeManager";
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
-  const [inventory, setInventory] = useState(0);
+  const [inventory, setInventory] = useState([]);
   const [open, setOpen] = useState(false);
 
   const toggleNavbar = () => setOpen(!open);
@@ -65,7 +65,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
               </Nav>
             </Collapse>
             <NavbarText style={{ marginRight: "4px" }}>
-              Bikes in Garage: {inventory}
+              Bikes in Garage: {inventory.length}
             </NavbarText>
             <Button
               color="primary"

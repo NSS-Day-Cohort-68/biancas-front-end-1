@@ -13,14 +13,10 @@ export const getBikeById = (id) => {
 }
 
 export const getBikesInShopCount = () => {
-  //add implementation here...
-<<<<<<< HEAD
+  // add implementation here...
   return fetch(
-    `http://localhost:8088/workOrders/?{dateCompleted=""}`
+    `http://localhost:8088/workOrders/?dateCompleted=`
   ).then((res) => res.json())
-};
+ };
 
 
-=======
-}
->>>>>>> f5c2c5a49791c3a6f4dcbcb5b6fec3ef3da4a919
