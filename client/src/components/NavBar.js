@@ -11,6 +11,7 @@ import {
   NavbarText,
   NavbarToggler,
 } from "reactstrap";
+import { getBikesInShopCount } from "../managers/bikeManager";
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [inventory, setInventory] = useState(0);
@@ -20,6 +21,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
 
   const getInventory = () => {
     //implement functionality here....
+    getBikesInShopCount().then((bikeArray) => setInventory(bikeArray))
   };
 
   useEffect(() => {
