@@ -29,20 +29,28 @@ export default function BikeDetails({ detailsBikeId }) {
       <Card color="dark" inverse>
         <CardBody>
           <CardTitle tag="h4">{bike.brand}</CardTitle>
-          <p>Owner: {bike.user?.name}</p>
-          <p>Address: {bike.user?.address}</p>
-          <p>Type: {bike.bikeType?.name}</p>
+          <p>
+            Owner: {bike.user.firstName} {bike.user.lastName}
+          </p>
+          <p>Address: {bike.user.address}</p>
+          <p>Type: {bike.bikeType.name}</p>
           <p>Color: {bike.color}</p>
         </CardBody>
       </Card>
       <h4>Work Order History</h4>
       {bike.workOrders &&
         bike.workOrders.map((wo) => (
-          <Card outline color="warning" key={wo.id} style={{ marginBottom: "4px" }}>
+          <Card
+            outline
+            color="warning"
+            key={wo.id}
+            style={{ marginBottom: "4px" }}
+          >
             <CardBody>
               <CardTitle tag="h5">{wo.dateInitiated.split("T")[0]}</CardTitle>
               <CardSubtitle>
-                Completed: {wo.dateCompleted ? wo.dateCompleted.split("T")[0] : "Open"}
+                Completed:{" "}
+                {wo.dateCompleted ? wo.dateCompleted.split("T")[0] : "Open"}
               </CardSubtitle>
               <CardText>Description: {wo.description}</CardText>
             </CardBody>
