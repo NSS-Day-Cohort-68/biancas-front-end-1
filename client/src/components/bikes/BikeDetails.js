@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react"
 import { Card, CardTitle, CardSubtitle, CardBody, CardText } from "reactstrap"
 import { getBikeById } from "../../managers/bikeManager"
+import { getUserById } from "../../managers/userManager"
+import { getTypeById } from "../../managers/typeManager"
 
 export default function BikeDetails({ detailsBikeId }) {
   const [bike, setBike] = useState(null)
+  const [user, setUser] = useState({})
+  const [bikeType, setBikeType] = useState({})
 
   const getBikeDetails = (id) => {
     getBikeById(id).then(setBike)
@@ -14,6 +18,13 @@ export default function BikeDetails({ detailsBikeId }) {
       getBikeDetails(detailsBikeId)
     }
   }, [detailsBikeId])
+
+  useEffect(() => {
+    if (!!bike) {
+      getUserById(bike.userId).then(setUser)
+      getTypeById(bike.bikeTypeId).then(setBikeType)
+    }
+  }, [bike])
 
   if (!bike) {
     return (
@@ -29,9 +40,11 @@ export default function BikeDetails({ detailsBikeId }) {
       <Card color="dark" inverse>
         <CardBody>
           <CardTitle tag="h4">{bike.brand}</CardTitle>
-          <p>Owner: {bike.user?.name}</p>
-          <p>Address: {bike.user?.address}</p>
-          <p>Type: {bike.bikeType?.name}</p>
+          <p>
+            Owner: {user?.firstName} {user?.lastName}
+          </p>
+          <p>Address: {user?.address}</p>
+          <p>Type: {bikeType?.name}</p>
           <p>Color: {bike.color}</p>
         </CardBody>
       </Card>
