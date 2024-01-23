@@ -15,7 +15,7 @@ import {
           <CardSubtitle className="mb-2 text-muted" tag="h6">
             User: {user.firstName} {user.lastName}
           </CardSubtitle>
-          <CardText>Admin: {user.isAdmin}</CardText>
+          <CardText>Admin: {(user.isAdmin).toString()}</CardText>
           <Button
             color="dark"
             onClick={() => {
