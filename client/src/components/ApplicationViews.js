@@ -3,7 +3,7 @@ import Bikes from "./bikes/Bikes"
 import { AuthorizedRoute } from "./auth/AuthorizedRoute"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
-import { NewWorkOrder } from "./workOrders/NewWorkOrder"
+import { NewWorkOrder } from "./work-orders/NewWorkOrder.js"
 import { BikeForm } from "./forms/BikeForm.js"
 import { WorkOrders } from "./work-orders/WorkOrders"
 

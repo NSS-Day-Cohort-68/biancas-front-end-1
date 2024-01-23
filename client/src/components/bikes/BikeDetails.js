@@ -14,7 +14,7 @@ import {
   updateWorkOrder,
 } from "../../managers/workOrderManager"
 
-export default function BikeDetails({ detailsBikeId, user }) {
+export default function BikeDetails({ detailsBikeId, user, getAllWorkOrders }) {
   const [bike, setBike] = useState(null)
   const navigate = useNavigate()
 
@@ -27,7 +27,7 @@ export default function BikeDetails({ detailsBikeId, user }) {
 
     if (!!openWorkOrder) {
       // if the bike has an open work order
-      if (!!user && user.isAdmin) {
+      if (user.isAdmin) {
         // and the user is an admin
         return (
           // display the "Complete Work Order" button
@@ -41,6 +41,7 @@ export default function BikeDetails({ detailsBikeId, user }) {
               }).then(() => {
                 if (detailsBikeId) {
                   getBikeDetails(detailsBikeId)
+                  getAllWorkOrders()
                 }
               })
             }}
