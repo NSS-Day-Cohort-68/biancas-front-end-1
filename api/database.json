@@ -142,11 +142,18 @@
       "bikeTypeId": 6
     },
     {
-      "brand": "BunnyHopper",
-      "color": "Gold",
+      "brand": "DiscountBikes",
+      "color": "Sky Blue",
       "userId": 3,
       "bikeTypeId": 5,
       "id": 11
+    },
+    {
+      "brand": "Bikes-R-Us",
+      "color": "Pink",
+      "userId": 1,
+      "bikeTypeId": 7,
+      "id": 12
     }
   ],
   "workOrders": [

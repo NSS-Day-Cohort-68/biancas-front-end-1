@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { Button, Form, FormGroup, Input } from "reactstrap"
 import { getUsers } from "../../managers/userManager.js"
-import { addBike, getBikeTypes, getBikes } from "../../managers/bikeManager.js"
+import { addBike, getBikeTypes } from "../../managers/bikeManager.js"
 import { useNavigate } from "react-router-dom"
 
-export const BikeForm = ({ loggedInUser }) => {
+export const BikeForm = ({ loggedInUser, setLoggedInUser }) => {
   const colors = [
     "Red",
     "Blue",
@@ -82,8 +82,6 @@ export const BikeForm = ({ loggedInUser }) => {
     addBike(newBike).then(() => navigate("/bikes"))
   }
 
-  const handleChange = () => {}
-
   let colorCount = 1
   let brandCount = 1
 
@@ -139,7 +137,7 @@ export const BikeForm = ({ loggedInUser }) => {
                 </option>
                 {bikeTypes.map((type) => {
                   return (
-                    <option value={type.name} key={`bikeType ${type.id}`}>
+                    <option value={type.id} key={`bikeType ${type.id}`}>
                       {type.name}
                     </option>
                   )
