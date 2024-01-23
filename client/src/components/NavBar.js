@@ -25,11 +25,6 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
   }; 
 
   useEffect(() => {
-    getInventory()
-
-  }, [])
-
-  useEffect(() => {
     loggedInUser && getInventory();
   }, [loggedInUser]);
 
@@ -65,13 +60,18 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                     <NavLink tag={RRNavLink} to="/employees">
                       Employees
                     </NavLink>
+                  </NavItem>) &&
+                  (<NavItem>
+                    <NavLink>
+                      <NavbarText style={{ marginRight: "4px" }}>
+                        Bikes in Garage: {inventory.length}
+                      </NavbarText>
+                    </NavLink>
                   </NavItem>
                 )}
               </Nav>
             </Collapse>
-            <NavbarText style={{ marginRight: "4px" }}>
-              Bikes in Garage: {inventory.length}
-            </NavbarText>
+           
             <Button
               color="primary"
               onClick={(e) => {
