@@ -13,6 +13,7 @@ import {
 } from "reactstrap"
 import { getBikesInShopCount } from "../managers/bikeManager"
 
+
 export default function NavBar({
   loggedInUser,
   setLoggedInUser,
@@ -64,6 +65,11 @@ export default function NavBar({
                     <NavItem onClick={() => setOpen(false)}>
                       <NavLink tag={RRNavLink} to="/employees">
                         Employees
+                      </NavLink>
+                    </NavItem>
+                    <NavItem onClick={() => setOpen(false)}>
+                      <NavLink tag={RRNavLink} to="/users">
+                        Users
                       </NavLink>
                     </NavItem>
                     <NavItem>
