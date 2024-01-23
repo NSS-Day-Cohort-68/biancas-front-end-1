@@ -138,8 +138,15 @@
       "id": 10,
       "brand": "CityCommuter",
       "color": "Purple",
-      "userId": 3,
+      "userId": 2,
       "bikeTypeId": 6
+    },
+    {
+      "brand": "BunnyHopper",
+      "color": "Gold",
+      "userId": 3,
+      "bikeTypeId": 5,
+      "id": 11
     }
   ],
   "workOrders": [

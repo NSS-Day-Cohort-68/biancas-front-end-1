@@ -21,3 +21,13 @@ export const getBikesByUser = (user) => {
     `${apiUrl}?userId=${user.id}&_embed=workOrders&_expand=user&_expand=bikeType`
   ).then((res) => res.json())
 }
+
+export const addBike = (bike) => {
+  return fetch(`http://localhost:8088/bikes`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(bike),
+  })
+}

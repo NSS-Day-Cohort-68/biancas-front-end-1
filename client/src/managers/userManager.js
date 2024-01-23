@@ -8,7 +8,7 @@ export const getUserById = (id) => {
 }
 
 export const getUsers = () => {
-  return fetch(``)
+  return fetch(`http://localhost:8088/users`).then((res) => res.json())
 }
 
 export const createUser = (user) => {
