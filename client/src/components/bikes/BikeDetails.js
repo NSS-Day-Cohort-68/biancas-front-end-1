@@ -27,7 +27,7 @@ export default function BikeDetails({ detailsBikeId, user }) {
 
     if (!!openWorkOrder) {
       // if the bike has an open work order
-      if (user.isAdmin) {
+      if (!!user && user.isAdmin) {
         // and the user is an admin
         return (
           // display the "Complete Work Order" button
