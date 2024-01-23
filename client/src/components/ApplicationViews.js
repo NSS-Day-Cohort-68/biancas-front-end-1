@@ -4,6 +4,7 @@ import { AuthorizedRoute } from "./auth/AuthorizedRoute"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
 import { WorkOrders } from "./work-orders/WorkOrders"
+import { BikeTypes } from "./bike-types/BikeTypes"
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -38,6 +39,14 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute admin={true} loggedInUser={loggedInUser}>
               <p>Employees</p>
+            </AuthorizedRoute>
+          }
+        />
+        <Route
+          path="biketypes"
+          element={
+            <AuthorizedRoute admin={true} loggedInUser={loggedInUser}>
+              <BikeTypes />
             </AuthorizedRoute>
           }
         />
