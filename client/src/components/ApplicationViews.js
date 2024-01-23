@@ -20,7 +20,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           path="bikes"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <Bikes />
+              <Bikes loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />
