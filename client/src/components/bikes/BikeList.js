@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react"
 import BikeCard from "./BikeCard"
-import { getBikes } from "../../managers/bikeManager"
+import { getBikes, getBikesByUser } from "../../managers/bikeManager"
 
-export default function BikeList({ setDetailsBikeId }) {
+export default function BikeList({ setDetailsBikeId, user }) {
   const [bikes, setBikes] = useState([])
 
-  const getAllBikes = () => {
-    getBikes().then(setBikes)
+  const getAndSetBikes = () => {
+    if (user.isAdmin) {
+      getBikes().then(setBikes)
+    } else {
+      getBikesByUser(user).then(setBikes)
+    }
   }
 
   useEffect(() => {
-    getAllBikes()
-  }, [])
+    getAndSetBikes()
+  }, []) //! getAndSetBikes dependency causes infinite loop
+
   return (
     <>
       <h2>Bikes</h2>
