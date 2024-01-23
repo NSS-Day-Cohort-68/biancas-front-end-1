@@ -3,6 +3,7 @@ import Bikes from "./bikes/Bikes"
 import { AuthorizedRoute } from "./auth/AuthorizedRoute"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
+import { BikeForm } from "./forms/BikeForm.js"
 import { WorkOrders } from "./work-orders/WorkOrders"
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
@@ -48,6 +49,14 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
         <Route
           path="register"
           element={<Register setLoggedInUser={setLoggedInUser} />}
+        />
+        <Route
+          path="newbike"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <BikeForm loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
       </Route>
       <Route path="*" element={<p>Whoops, nothing here...</p>} />
