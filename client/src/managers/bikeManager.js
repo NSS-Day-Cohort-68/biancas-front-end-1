@@ -15,3 +15,9 @@ export const getBikeById = (id) => {
 export const getBikesInShopCount = () => {
   //add implementation here...
 }
+
+export const getBikesByUser = (user) => {
+  return fetch(
+    `${apiUrl}?userId=${user.id}&_embed=workOrders&_expand=user&_expand=bikeType`
+  ).then((res) => res.json())
+}
