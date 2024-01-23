@@ -2,6 +2,11 @@ import { fetchOptions } from "../helper"
 
 const apiUrl = "http://localhost:8088/workOrders"
 
+export const getWorkOrders = async () => {
+  const response = await fetch(`${apiUrl}?_expand=bike`)
+  return await response.json()
+}
+
 export const createWorkOrder = async (workOrder) => {
   return await fetch(apiUrl, fetchOptions("POST", workOrder)).then((res) =>
     res.json()

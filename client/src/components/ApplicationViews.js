@@ -4,6 +4,7 @@ import { AuthorizedRoute } from "./auth/AuthorizedRoute"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
 import { NewWorkOrder } from "./workOrders/NewWorkOrder"
+import { WorkOrders } from "./work-orders/WorkOrders"
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -29,7 +30,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           path="workorders"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <p>Work Orders</p>
+              <WorkOrders loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />

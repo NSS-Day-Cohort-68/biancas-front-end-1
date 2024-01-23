@@ -60,12 +60,12 @@ export default function NavBar({
                   </NavLink>
                 </NavItem>
                 {loggedInUser.isAdmin && (
+                  <>
                     <NavItem onClick={() => setOpen(false)}>
                       <NavLink tag={RRNavLink} to="/employees">
                         Employees
                       </NavLink>
                     </NavItem>
-                  ) && (
                     <NavItem>
                       <NavLink>
                         <NavbarText style={{ marginRight: "4px" }}>
@@ -73,7 +73,8 @@ export default function NavBar({
                         </NavbarText>
                       </NavLink>
                     </NavItem>
-                  )}
+                  </>
+                )}
               </Nav>
             </Collapse>
 
