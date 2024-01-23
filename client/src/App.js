@@ -8,6 +8,7 @@ import { getUserById } from "./managers/userManager";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState();
+  const [inventory, setInventory] = useState(0)
 
   useEffect(() => {
     const user = localStorage.getItem("biancas_user");
@@ -25,10 +26,12 @@ function App() {
 
   return (
     <>
-      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
+      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} inventory={inventory} setInventory={setInventory} />
       <ApplicationViews
         loggedInUser={loggedInUser}
         setLoggedInUser={setLoggedInUser}
+        inventory={inventory} 
+        setInventory={setInventory}
       />
     </>
   );

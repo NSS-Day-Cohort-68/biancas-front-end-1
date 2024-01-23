@@ -11,16 +11,17 @@ import {
   NavbarText,
   NavbarToggler,
 } from "reactstrap";
+import { getBikesInShopCount } from "../managers/bikeManager";
 
-export default function NavBar({ loggedInUser, setLoggedInUser }) {
-  const [inventory, setInventory] = useState(0);
+export default function NavBar({ loggedInUser, setLoggedInUser, inventory, setInventory  }) {
   const [open, setOpen] = useState(false);
 
   const toggleNavbar = () => setOpen(!open);
 
   const getInventory = () => {
     //implement functionality here....
-  };
+    getBikesInShopCount().then((bikeArray) => setInventory(bikeArray))
+  }; 
 
   useEffect(() => {
     loggedInUser && getInventory();
@@ -58,13 +59,18 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                     <NavLink tag={RRNavLink} to="/employees">
                       Employees
                     </NavLink>
+                  </NavItem>) &&
+                  (<NavItem>
+                    <NavLink>
+                      <NavbarText style={{ marginRight: "4px" }}>
+                        Bikes in Garage: {inventory.length}
+                      </NavbarText>
+                    </NavLink>
                   </NavItem>
                 )}
               </Nav>
             </Collapse>
-            <NavbarText style={{ marginRight: "4px" }}>
-              Bikes in Garage: {inventory}
-            </NavbarText>
+           
             <Button
               color="primary"
               onClick={(e) => {
