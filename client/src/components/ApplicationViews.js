@@ -29,7 +29,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           path="workorders"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <WorkOrders />
+              <WorkOrders loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />

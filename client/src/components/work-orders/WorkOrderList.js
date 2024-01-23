@@ -2,14 +2,23 @@ import { useState, useEffect } from "react"
 import { getWorkOrders } from "../../managers/workOrderManager"
 import { WorkOrderCard } from "./WorkOrderCard"
 
-export const WorkOrderList = ({ setWoBikeId }) => {
+export const WorkOrderList = ({ setWoBikeId, loggedInUser }) => {
   const [allWorkOrders, setAllWorkOrders] = useState([])
   const [incompleteWorkOrders, setIncompleteWorkOrders] = useState([])
 
   const getAllWorkOrders = () => {
-    getWorkOrders().then((woArray) => {
-      setAllWorkOrders(woArray)
-    })
+    if (loggedInUser?.isAdmin) {
+      getWorkOrders().then((woArray) => {
+        setAllWorkOrders(woArray)
+      })
+    } else {
+      getWorkOrders().then((allWoArray) => {
+        const userWorkOrders = allWoArray.filter(
+          (wo) => wo.bike.userId === loggedInUser?.id
+        )
+        setAllWorkOrders(userWorkOrders)
+      })
+    }
   }
 
   useEffect(() => {
