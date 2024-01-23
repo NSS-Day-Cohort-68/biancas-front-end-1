@@ -4,6 +4,7 @@ import { AuthorizedRoute } from "./auth/AuthorizedRoute"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
 import { useState } from "react"
+import Users from "./users/Users"
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser}) {
 
@@ -40,6 +41,14 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser}) {
           element={
             <AuthorizedRoute admin={true} loggedInUser={loggedInUser}>
               <p>Employees</p>
+            </AuthorizedRoute>
+          }
+        />
+        <Route
+          path="users"
+          element={
+            <AuthorizedRoute admin={true} loggedInUser={loggedInUser}>
+              <Users/> 
             </AuthorizedRoute>
           }
         />

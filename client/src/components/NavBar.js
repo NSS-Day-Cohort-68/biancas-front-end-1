@@ -67,7 +67,12 @@ export default function NavBar({ loggedInUser, setLoggedInUser, inventory, setIn
                       </NavbarText>
                     </NavLink>
                   </NavItem>
-                )}
+                ) && (
+                  <NavItem onClick={() => setOpen(false)}>
+                    <NavLink tag={RRNavLink} to="/users">
+                      Users
+                    </NavLink>
+                  </NavItem>)}
               </Nav>
             </Collapse>
            
