@@ -1,6 +1,13 @@
-import { Card, CardBody, CardSubtitle, CardText, CardTitle } from "reactstrap"
+import {
+  Button,
+  Card,
+  CardBody,
+  CardSubtitle,
+  CardText,
+  CardTitle,
+} from "reactstrap"
 
-export const WorkOrderCard = ({ wo }) => {
+export const WorkOrderCard = ({ wo, setWoBikeId }) => {
   return (
     <Card outline style={{ marginBottom: "4px" }}>
       <CardBody>
@@ -8,7 +15,20 @@ export const WorkOrderCard = ({ wo }) => {
         <CardSubtitle className="mb-2 text-muted" tag="h6">
           {wo.description}
         </CardSubtitle>
-        <CardText></CardText>
+        <CardText>Date Initiated: {wo.dateInitiated.split("T")[0]}</CardText>
+        <Button
+          color="dark"
+          onClick={() => {
+            setWoBikeId(wo.bikeId)
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            })
+          }}
+        >
+          Show Bike Details
+        </Button>
       </CardBody>
     </Card>
   )
