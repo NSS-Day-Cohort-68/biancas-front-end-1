@@ -3,12 +3,10 @@ import Bikes from "./bikes/Bikes"
 import { AuthorizedRoute } from "./auth/AuthorizedRoute"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
-import { useState } from "react"
+import { WorkOrders } from "./work-orders/WorkOrders"
 import Users from "./users/Users"
 
-export default function ApplicationViews({ loggedInUser, setLoggedInUser}) {
-
-
+export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
     <Routes>
       <Route path="/">
@@ -32,7 +30,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser}) {
           path="workorders"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <p>Work Orders</p>
+              <WorkOrders loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />
