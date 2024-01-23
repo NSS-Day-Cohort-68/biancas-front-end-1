@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react"
-import { Card, CardTitle, CardSubtitle, CardBody, CardText } from "reactstrap"
+import {
+  Card,
+  CardTitle,
+  CardSubtitle,
+  CardBody,
+  CardText,
+  Button,
+} from "reactstrap"
 import { getBikeById } from "../../managers/bikeManager"
 
 export default function BikeDetails({ detailsBikeId }) {
@@ -37,6 +44,11 @@ export default function BikeDetails({ detailsBikeId }) {
           <p>Color: {bike.color}</p>
         </CardBody>
       </Card>
+
+      <Button color="primary" style={{ marginTop: "8px", marginBottom: "4px" }}>
+        Open Work Order
+      </Button>
+
       <h4>Work Order History</h4>
       {bike.workOrders &&
         bike.workOrders.map((wo) => (
