@@ -25,7 +25,7 @@
       "userName": "Hewson",
       "email": "hewson@bruh.com",
       "address": "103 Drury Lane",
-      "isAdmin": true
+      "isAdmin": false
     }
   ],
   "bikeTypes": [
@@ -124,21 +124,21 @@
       "id": 8,
       "brand": "CruiseKing",
       "color": "Brown",
-      "userId": 1,
+      "userId": 3,
       "bikeTypeId": 7
     },
     {
       "id": 9,
       "brand": "GravelMaster",
       "color": "Gray",
-      "userId": 2,
+      "userId": 3,
       "bikeTypeId": 5
     },
     {
       "id": 10,
       "brand": "CityCommuter",
       "color": "Purple",
-      "userId": 2,
+      "userId": 3,
       "bikeTypeId": 6
     }
   ],
