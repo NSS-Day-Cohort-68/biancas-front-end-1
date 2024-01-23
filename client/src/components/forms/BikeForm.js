@@ -1,18 +1,18 @@
 import { Form, FormGroup } from "reactstrap"
 
-export const BikeForm = ({ admin, loggedInUser }) => {
+export const BikeForm = ({ loggedInUser }) => {
   return (
     <div className="container">
       <div className="row">
         <div className="col-sm-8">
           <Form>
             <FormGroup>
-              {admin ? (
+              {loggedInUser.isAdmin ? (
                 <select>
                   <option>admin is "loggedInUser"</option>
                 </select>
               ) : (
-                <select>
+                <select disabled>
                   <option>
                     {loggedInUser.firstName} {loggedInUser.lastName}
                   </option>
