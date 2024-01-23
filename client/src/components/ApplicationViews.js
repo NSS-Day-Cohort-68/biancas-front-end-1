@@ -1,8 +1,9 @@
-import { Route, Routes } from "react-router-dom";
-import Bikes from "./bikes/Bikes";
-import { AuthorizedRoute } from "./auth/AuthorizedRoute";
-import Login from "./auth/Login";
-import Register from "./auth/Register";
+import { Route, Routes } from "react-router-dom"
+import Bikes from "./bikes/Bikes"
+import { AuthorizedRoute } from "./auth/AuthorizedRoute"
+import Login from "./auth/Login"
+import Register from "./auth/Register"
+import { BikeForm } from "./forms/BikeForm.js"
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -48,8 +49,12 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           path="register"
           element={<Register setLoggedInUser={setLoggedInUser} />}
         />
+        <Route
+          path="newbike"
+          element={<BikeForm loggedInUser={loggedInUser} />}
+        />
       </Route>
       <Route path="*" element={<p>Whoops, nothing here...</p>} />
     </Routes>
-  );
+  )
 }
