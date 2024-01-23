@@ -41,7 +41,9 @@ export default function BikeDetails({ detailsBikeId, user, getAllWorkOrders }) {
               }).then(() => {
                 if (detailsBikeId) {
                   getBikeDetails(detailsBikeId)
-                  getAllWorkOrders()
+                  if (!!getAllWorkOrders) {
+                    getAllWorkOrders()
+                  }
                 }
               })
             }}

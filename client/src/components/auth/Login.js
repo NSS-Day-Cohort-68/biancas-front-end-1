@@ -1,34 +1,34 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap";
-import { getUserByEmail } from "../../managers/userManager";
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap"
+import { getUserByEmail } from "../../managers/userManager"
 
 export default function Login({ setLoggedInUser }) {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [failedLogin, setFailedLogin] = useState(false);
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("admina@strator.comx") // default administrator email
+  const [failedLogin, setFailedLogin] = useState(false)
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     getUserByEmail(email).then((foundUsers) => {
       if (foundUsers.length === 1) {
-        const user = foundUsers[0];
+        const user = foundUsers[0]
         localStorage.setItem(
           "biancas_user",
           JSON.stringify({
             id: user.id,
             isAdmin: user.isAdmin,
-          }),
-        );
-        setLoggedInUser(user);
+          })
+        )
+        setLoggedInUser(user)
 
-        navigate("/");
+        navigate("/")
       } else {
-        setFailedLogin(true);
+        setFailedLogin(true)
       }
-    });
-  };
+    })
+  }
 
   return (
     <div className="container" style={{ maxWidth: "500px" }}>
@@ -40,8 +40,8 @@ export default function Login({ setLoggedInUser }) {
           type="text"
           value={email}
           onChange={(e) => {
-            setFailedLogin(false);
-            setEmail(e.target.value);
+            setFailedLogin(false)
+            setEmail(e.target.value)
           }}
         />
         <FormFeedback>Login failed.</FormFeedback>
@@ -53,5 +53,5 @@ export default function Login({ setLoggedInUser }) {
         Not signed up? Register <Link to="/register">here</Link>
       </p>
     </div>
-  );
+  )
 }

@@ -58,14 +58,16 @@ export const NewWorkOrder = ({ user }) => {
         <Button
           color="primary"
           onClick={() => {
-            createWorkOrder({
-              dateInitiated: new Date().toISOString(),
-              dateCompleted: "",
-              description,
-              bikeId: bike.id,
-            })
+            if (description !== "") {
+              createWorkOrder({
+                dateInitiated: new Date().toISOString(),
+                dateCompleted: "",
+                description,
+                bikeId: bike.id,
+              })
 
-            navigate("/")
+              navigate("/")
+            }
           }}
         >
           Submit Work Order
