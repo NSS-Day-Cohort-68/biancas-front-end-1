@@ -13,8 +13,7 @@ import {
 } from "reactstrap";
 import { getBikesInShopCount } from "../managers/bikeManager";
 
-export default function NavBar({ loggedInUser, setLoggedInUser }) {
-  const [inventory, setInventory] = useState([]);
+export default function NavBar({ loggedInUser, setLoggedInUser, inventory, setInventory  }) {
   const [open, setOpen] = useState(false);
 
   const toggleNavbar = () => setOpen(!open);
