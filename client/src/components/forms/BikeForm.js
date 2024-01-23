@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Button, Form, FormGroup, Input } from "reactstrap"
 import { getUsers } from "../../managers/userManager.js"
-import { addBike, getBikes } from "../../managers/bikeManager.js"
+import { addBike, getBikeTypes, getBikes } from "../../managers/bikeManager.js"
 import { useNavigate } from "react-router-dom"
 
 export const BikeForm = ({ loggedInUser }) => {
@@ -44,7 +44,7 @@ export const BikeForm = ({ loggedInUser }) => {
   const navigate = useNavigate()
 
   const [users, setUsers] = useState([])
-  const [bikes, setBikes] = useState([])
+  const [bikeTypes, setBikeTypes] = useState([])
 
   const [newUser, setNewUser] = useState("")
   const [newType, setNewType] = useState("")
@@ -53,11 +53,11 @@ export const BikeForm = ({ loggedInUser }) => {
 
   useEffect(() => {
     getUsers().then((usersArray) => setUsers(usersArray))
-  }, [])
+  }, [loggedInUser])
 
   useEffect(() => {
-    getBikes().then((bikesArray) => setBikes(bikesArray))
-  }, [])
+    getBikeTypes().then((bikesArray) => setBikeTypes(bikesArray))
+  }, [loggedInUser])
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -109,7 +109,7 @@ export const BikeForm = ({ loggedInUser }) => {
                     </option>
                     {users.map((user) => {
                       return (
-                        <option value={user.id} key={user.id}>
+                        <option value={user.id} key={`user ${user.id}`}>
                           {user.firstName} {user.lastName}
                         </option>
                       )
@@ -137,10 +137,10 @@ export const BikeForm = ({ loggedInUser }) => {
                 <option value="" key={0}>
                   Select a Bike Type
                 </option>
-                {bikes.map((bike) => {
+                {bikeTypes.map((type) => {
                   return (
-                    <option value={bike.bikeType.id} key={bike.bikeType.id}>
-                      {bike.bikeType.name}
+                    <option value={type.name} key={`bikeType ${type.id}`}>
+                      {type.name}
                     </option>
                   )
                 })}
@@ -159,7 +159,7 @@ export const BikeForm = ({ loggedInUser }) => {
                 </option>
                 {colors.map((color) => {
                   return (
-                    <option value={color} key={colorCount++}>
+                    <option value={color} key={`color ${colorCount++}`}>
                       {color}
                     </option>
                   )
@@ -179,7 +179,7 @@ export const BikeForm = ({ loggedInUser }) => {
                 </option>
                 {brands.map((brand) => {
                   return (
-                    <option value={brand} key={brandCount++}>
+                    <option value={brand} key={`brand ${brandCount++}`}>
                       {brand}
                     </option>
                   )

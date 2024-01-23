@@ -14,17 +14,19 @@ export const getBikeById = (id) => {
 
 export const getBikesInShopCount = () => {
   // add implementation here...
-  return fetch(
-    `http://localhost:8088/workOrders/?dateCompleted=`
-  ).then((res) => res.json())
- };
-
-
+  return fetch(`http://localhost:8088/workOrders/?dateCompleted=`).then((res) =>
+    res.json()
+  )
+}
 
 export const getBikesByUser = (user) => {
   return fetch(
     `${apiUrl}?userId=${user.id}&_embed=workOrders&_expand=user&_expand=bikeType`
   ).then((res) => res.json())
+}
+
+export const getBikeTypes = () => {
+  return fetch(`http://localhost:8088/bikeTypes`).then((res) => res.json())
 }
 
 export const addBike = (bike) => {
