@@ -12,3 +12,39 @@ export const fetchOptions = (method, body) => {
 
   return options
 }
+
+export const bikeColors = [
+  "Red",
+  "Blue",
+  "Green",
+  "Black",
+  "Yellow",
+  "Silver",
+  "Orange",
+  "Brown",
+  "Gray",
+  "Purple",
+  "White",
+  "Sky Blue",
+  "Gold",
+  "Bronze",
+  "Pink",
+]
+
+export const bikeBrands = [
+  "VelocityCruiser",
+  "AeroBlitzBikes",
+  "EcoCommute",
+  "UrbanRider",
+  "ExtremeThrill",
+  "SwiftElectric",
+  "FoldMaster",
+  "CruiseKing",
+  "GravelMaster",
+  "CityCommuter",
+  "TwoWheels",
+  "Bikes-R-Us",
+  "DiscountBikes",
+  "BigCityJumper",
+  "BunnyHopper",
+]
