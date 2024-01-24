@@ -75,7 +75,7 @@ export default function BikeDetails({ detailsBikeId, user, getAllWorkOrders }) {
     }
   }, [detailsBikeId])
 
-  if (!bike) {
+  if (!bike || !detailsBikeId) {
     return (
       <>
         <h2>Bike Details</h2>

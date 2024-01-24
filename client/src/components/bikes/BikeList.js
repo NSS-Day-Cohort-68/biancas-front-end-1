@@ -15,6 +15,10 @@ export default function BikeList({ setDetailsBikeId, user }) {
     }
   }
 
+  const findWorkOrder = (bike) => {
+    return bike.workOrders.length > 0
+  }
+
   useEffect(() => {
     getAndSetBikes()
   }, []) //! getAndSetBikes dependency causes infinite loop
@@ -34,6 +38,8 @@ export default function BikeList({ setDetailsBikeId, user }) {
           bike={bike}
           setDetailsBikeId={setDetailsBikeId}
           key={`bike-${bike.id}`}
+          hasWorkOrders={findWorkOrder(bike)}
+          getAndSetBikes={getAndSetBikes}
         ></BikeCard>
       ))}
     </>
