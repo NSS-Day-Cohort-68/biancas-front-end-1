@@ -16,3 +16,7 @@ export const getUsers = () => {
 export const createUser = (user) => {
   return fetch(apiUrl, fetchOptions("POST", user)).then((res) => res.json())
 }
+
+export const changeAdminStatus = (user) => {
+  return fetch(`${apiUrl}/${user.id}`, fetchOptions("PUT", user)).then((res) => res.json())
+}
