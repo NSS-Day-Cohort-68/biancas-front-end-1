@@ -14,7 +14,12 @@ import {
   updateWorkOrder,
 } from "../../managers/workOrderManager"
 
-export default function BikeDetails({ detailsBikeId, user, getAllWorkOrders }) {
+export default function BikeDetails({
+  detailsBikeId,
+  setDetailsBikeId,
+  user,
+  getAllWorkOrders,
+}) {
   const [bike, setBike] = useState(null)
   const navigate = useNavigate()
 
@@ -39,11 +44,14 @@ export default function BikeDetails({ detailsBikeId, user, getAllWorkOrders }) {
                 ...openWorkOrder,
                 dateCompleted: new Date().toISOString(),
               }).then(() => {
-                if (detailsBikeId) {
+                if (!!getAllWorkOrders) {
+                  getAllWorkOrders()
+                }
+                if (!!setDetailsBikeId) {
+                  setDetailsBikeId(null)
+                }
+                if (!!detailsBikeId) {
                   getBikeDetails(detailsBikeId)
-                  if (!!getAllWorkOrders) {
-                    getAllWorkOrders()
-                  }
                 }
               })
             }}
