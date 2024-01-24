@@ -38,10 +38,10 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           }
         />
         <Route
-          path="employees"
+          path="users"
           element={
             <AuthorizedRoute admin={true} loggedInUser={loggedInUser}>
-              <p>Employees</p>
+              <Users />
             </AuthorizedRoute>
           }
         />
@@ -58,14 +58,6 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute admin={true} loggedInUser={loggedInUser}>
               <BikeTypes />
-            </AuthorizedRoute>
-          }
-        />
-        <Route
-          path="users"
-          element={
-            <AuthorizedRoute admin={true} loggedInUser={loggedInUser}>
-              <Users/> 
             </AuthorizedRoute>
           }
         />

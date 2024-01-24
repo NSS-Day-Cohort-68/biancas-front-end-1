@@ -42,7 +42,9 @@ export const AddBikeType = ({ bikeTypes, getAllBikeTypes }) => {
             setNewBikeType(event.target.value)
           }}
         />
-        <Button onClick={handleSubmit}>Add</Button>
+        <Button onClick={handleSubmit} color="success">
+          Add
+        </Button>
         <FormFeedback>That bike type is already in the database.</FormFeedback>
       </FormGroup>
     </div>
