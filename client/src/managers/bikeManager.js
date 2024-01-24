@@ -33,3 +33,13 @@ export const getBikeTypes = () => {
 export const addBike = (bike) => {
   return fetch(`http://localhost:8088/bikes`, fetchOptions("POST", bike))
 }
+
+export const addBikeType = async (bikeType) => {
+  const postOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(bikeType),
+  }
+
+  return await fetch("http://localhost:8088/bikeTypes", postOptions)
+}

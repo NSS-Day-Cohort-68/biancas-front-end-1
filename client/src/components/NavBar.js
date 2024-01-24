@@ -68,6 +68,11 @@ export default function NavBar({
                       </NavLink>
                     </NavItem>
                     <NavItem onClick={() => setOpen(false)}>
+                      <NavLink tag={RRNavLink} to="/biketypes">
+                        Bike Types
+                      </NavLink>
+                    </NavItem>
+                    <NavItem onClick={() => setOpen(false)}>
                       <NavLink tag={RRNavLink} to="/users">
                         Users
                       </NavLink>
