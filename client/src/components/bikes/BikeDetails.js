@@ -1,12 +1,72 @@
 import { useState, useEffect } from "react"
-import { Card, CardTitle, CardSubtitle, CardBody, CardText } from "reactstrap"
+import {
+  Card,
+  CardTitle,
+  CardSubtitle,
+  CardBody,
+  CardText,
+  Button,
+} from "reactstrap"
 import { getBikeById } from "../../managers/bikeManager"
+import { useNavigate } from "react-router-dom"
+import {
+  findOpenWorkOrder,
+  updateWorkOrder,
+} from "../../managers/workOrderManager"
 
-export default function BikeDetails({ detailsBikeId }) {
+export default function BikeDetails({ detailsBikeId, user, getAllWorkOrders }) {
   const [bike, setBike] = useState(null)
+  const navigate = useNavigate()
 
   const getBikeDetails = (id) => {
     getBikeById(id).then(setBike)
+  }
+
+  const showButtons = () => {
+    const openWorkOrder = findOpenWorkOrder(bike.workOrders)
+
+    if (!!openWorkOrder) {
+      // if the bike has an open work order
+      if (user.isAdmin) {
+        // and the user is an admin
+        return (
+          // display the "Complete Work Order" button
+          <Button
+            color="primary"
+            style={{ marginTop: "4px", marginBottom: "4px" }}
+            onClick={() => {
+              updateWorkOrder({
+                ...openWorkOrder,
+                dateCompleted: new Date().toISOString(),
+              }).then(() => {
+                if (detailsBikeId) {
+                  getBikeDetails(detailsBikeId)
+                  if (!!getAllWorkOrders) {
+                    getAllWorkOrders()
+                  }
+                }
+              })
+            }}
+          >
+            Complete Work Order
+          </Button>
+        )
+      }
+    } else {
+      // if the bike does not have an open work order
+      return (
+        // display the "Open Work Order" button
+        <Button
+          color="primary"
+          style={{ marginTop: "4px", marginBottom: "4px" }}
+          onClick={() => {
+            navigate(`/neworder/${detailsBikeId}`)
+          }}
+        >
+          Open Work Order
+        </Button>
+      )
+    }
   }
 
   useEffect(() => {
@@ -26,7 +86,7 @@ export default function BikeDetails({ detailsBikeId }) {
   return (
     <>
       <h2>Bike Details</h2>
-      <Card color="dark" inverse>
+      <Card color="dark" inverse style={{ marginBottom: "4px" }}>
         <CardBody>
           <CardTitle tag="h4">{bike.brand}</CardTitle>
           <p>
@@ -37,6 +97,9 @@ export default function BikeDetails({ detailsBikeId }) {
           <p>Color: {bike.color}</p>
         </CardBody>
       </Card>
+
+      {showButtons()}
+
       <h4>Work Order History</h4>
       {bike.workOrders &&
         bike.workOrders.map((wo) => (

@@ -17,7 +17,7 @@ export default function Bikes({ loggedInUser }) {
           <BikeList setDetailsBikeId={setDetailsBikeId} user={loggedInUser} />
         </div>
         <div className="col-sm-4">
-          <BikeDetails detailsBikeId={detailsBikeId} />
+          <BikeDetails detailsBikeId={detailsBikeId} user={loggedInUser} />
         </div>
       </div>
     </div>
