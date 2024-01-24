@@ -20,6 +20,7 @@ export default function UserList({ setDetailsUserId }) {
         <UserCard
           user={user}
           setDetailsUserId={setDetailsUserId}
+          getAndSetUsers={getAndSetUsers}
           key={`user-${user.id}`}
         ></UserCard>
       ))}

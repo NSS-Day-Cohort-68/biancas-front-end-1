@@ -6,8 +6,9 @@ import {
     CardSubtitle,
     Button,
   } from "reactstrap"
+  import { changeAdminStatus } from "../../managers/userManager"
   
-  export default function UserCard({ user, setDetailsUserId }) {
+  export default function UserCard({ user, setDetailsUserId, getAndSetUsers }) {
     return (
       <Card color="dark" outline style={{ marginBottom: "4px" }}>
         <CardBody>
@@ -29,6 +30,30 @@ import {
           >
             Show Details
           </Button>
+          {user.isAdmin ? (
+            <Button
+            color="dark"
+            onClick={() => {
+              user.isAdmin = false
+              changeAdminStatus(user)
+              .then(() => getAndSetUsers())
+            }}
+          >
+            Demote
+          </Button>
+          ) : (
+            <Button
+            color="dark"
+            onClick={() => {
+            user.isAdmin= true
+            changeAdminStatus(user)
+            .then(() => getAndSetUsers())
+            }}
+          >
+            Promote
+          </Button>
+          )
+          }
         </CardBody>
       </Card>
     )
