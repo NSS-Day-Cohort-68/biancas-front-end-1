@@ -6,8 +6,14 @@ import {
   CardSubtitle,
   Button,
 } from "reactstrap"
+import { deleteBike } from "../../managers/bikeManager"
 
-export default function BikeCard({ bike, setDetailsBikeId }) {
+export default function BikeCard({
+  bike,
+  setDetailsBikeId,
+  hasWorkOrders,
+  getAndSetBikes,
+}) {
   return (
     <Card color="dark" outline style={{ marginBottom: "4px" }}>
       <CardBody>
@@ -29,6 +35,21 @@ export default function BikeCard({ bike, setDetailsBikeId }) {
         >
           Show Details
         </Button>
+
+        {!hasWorkOrders && (
+          <Button
+            color="danger"
+            style={{ float: "right" }}
+            onClick={() => {
+              deleteBike(bike).then(() => {
+                setDetailsBikeId(null)
+                getAndSetBikes()
+              })
+            }}
+          >
+            Delete
+          </Button>
+        )}
       </CardBody>
     </Card>
   )

@@ -35,6 +35,7 @@ export const WorkOrders = ({ loggedInUser }) => {
         <div className="col-sm-4">
           <BikeDetails
             detailsBikeId={woBikeId}
+            setDetailsBikeId={setWoBikeId}
             user={loggedInUser}
             getAllWorkOrders={getAllWorkOrders}
           />

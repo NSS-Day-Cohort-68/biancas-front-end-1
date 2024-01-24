@@ -27,19 +27,22 @@ export const getBikesByUser = (user) => {
 }
 
 export const getBikeTypes = () => {
-  return fetch(`http://localhost:8088/bikeTypes`).then((res) => res.json())
+  return fetch("http://localhost:8088/bikeTypes").then((res) => res.json())
 }
 
 export const addBike = (bike) => {
-  return fetch(`http://localhost:8088/bikes`, fetchOptions("POST", bike))
+  return fetch(apiUrl, fetchOptions("POST", bike))
 }
 
 export const addBikeType = async (bikeType) => {
-  const postOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(bikeType),
-  }
+  return await fetch(
+    "http://localhost:8088/bikeTypes",
+    fetchOptions("POST", bikeType)
+  )
+}
 
-  return await fetch("http://localhost:8088/bikeTypes", postOptions)
+export const deleteBike = async (bike) => {
+  return await fetch(`${apiUrl}/${bike.id}`, fetchOptions("DELETE")).then(
+    (res) => res.json()
+  )
 }
