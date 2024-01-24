@@ -3,44 +3,9 @@ import { Button, Form, FormGroup, Input } from "reactstrap"
 import { getUsers } from "../../managers/userManager.js"
 import { addBike, getBikeTypes } from "../../managers/bikeManager.js"
 import { useNavigate } from "react-router-dom"
+import { bikeBrands, bikeColors } from "../../helper.js"
 
-export const BikeForm = ({ loggedInUser, setLoggedInUser }) => {
-  const colors = [
-    "Red",
-    "Blue",
-    "Green",
-    "Black",
-    "Yellow",
-    "Silver",
-    "Orange",
-    "Brown",
-    "Gray",
-    "Purple",
-    "White",
-    "Sky Blue",
-    "Gold",
-    "Bronze",
-    "Pink",
-  ]
-
-  const brands = [
-    "VelocityCruiser",
-    "AeroBlitzBikes",
-    "EcoCommute",
-    "UrbanRider",
-    "ExtremeThrill",
-    "SwiftElectric",
-    "FoldMaster",
-    "CruiseKing",
-    "GravelMaster",
-    "CityCommuter",
-    "TwoWheels",
-    "Bikes-R-Us",
-    "DiscountBikes",
-    "BigCityJumper",
-    "BunnyHopper",
-  ]
-
+export const BikeForm = ({ loggedInUser }) => {
   const navigate = useNavigate()
 
   const [users, setUsers] = useState([])
@@ -79,7 +44,14 @@ export const BikeForm = ({ loggedInUser, setLoggedInUser }) => {
         bikeTypeId: parseInt(newType),
       }
     }
-    addBike(newBike).then(() => navigate("/bikes"))
+    if (
+      !!newBike.brand &&
+      !!newBike.color &&
+      !!newBike.userId &&
+      !!newBike.bikeTypeId
+    ) {
+      addBike(newBike).then(() => navigate("/bikes"))
+    }
   }
 
   let colorCount = 1
@@ -155,7 +127,7 @@ export const BikeForm = ({ loggedInUser, setLoggedInUser }) => {
                 <option value="" key={0}>
                   Select a Bike Color
                 </option>
-                {colors.map((color) => {
+                {bikeColors.map((color) => {
                   return (
                     <option value={color} key={`color ${colorCount++}`}>
                       {color}
@@ -175,7 +147,7 @@ export const BikeForm = ({ loggedInUser, setLoggedInUser }) => {
                 <option value="" key={0}>
                   Select a Bike Brand
                 </option>
-                {brands.map((brand) => {
+                {bikeBrands.map((brand) => {
                   return (
                     <option value={brand} key={`brand ${brandCount++}`}>
                       {brand}
