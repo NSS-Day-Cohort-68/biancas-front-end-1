@@ -66,6 +66,11 @@ export default function NavBar({
                         Employees
                       </NavLink>
                     </NavItem>
+                    <NavItem onClick={() => setOpen(false)}>
+                      <NavLink tag={RRNavLink} to="/biketypes">
+                        Bike Types
+                      </NavLink>
+                    </NavItem>
                     <NavItem>
                       <NavLink>
                         <NavbarText style={{ marginRight: "4px" }}>
