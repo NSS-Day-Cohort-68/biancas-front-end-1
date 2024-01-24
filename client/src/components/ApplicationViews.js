@@ -3,6 +3,7 @@ import Bikes from "./bikes/Bikes"
 import { AuthorizedRoute } from "./auth/AuthorizedRoute"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
+import { NewWorkOrder } from "./work-orders/NewWorkOrder.js"
 import { BikeForm } from "./forms/BikeForm.js"
 import { WorkOrders } from "./work-orders/WorkOrders"
 import { BikeTypes } from "./bike-types/BikeTypes"
@@ -40,6 +41,14 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute admin={true} loggedInUser={loggedInUser}>
               <p>Employees</p>
+            </AuthorizedRoute>
+          }
+        />
+        <Route
+          path="neworder/:bikeId"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <NewWorkOrder user={loggedInUser} />
             </AuthorizedRoute>
           }
         />

@@ -1,3 +1,5 @@
+import { fetchOptions } from "../helper"
+
 const apiUrl = "http://localhost:8088/bikes"
 
 export const getBikes = () => {
@@ -13,7 +15,6 @@ export const getBikeById = (id) => {
 }
 
 export const getBikesInShopCount = () => {
-  // add implementation here...
   return fetch(`http://localhost:8088/workOrders/?dateCompleted=`).then((res) =>
     res.json()
   )
@@ -30,13 +31,7 @@ export const getBikeTypes = () => {
 }
 
 export const addBike = (bike) => {
-  return fetch(`http://localhost:8088/bikes`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(bike),
-  })
+  return fetch(`http://localhost:8088/bikes`, fetchOptions("POST", bike))
 }
 
 export const addBikeType = async (bikeType) => {

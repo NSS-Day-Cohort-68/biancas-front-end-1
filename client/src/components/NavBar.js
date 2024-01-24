@@ -37,7 +37,7 @@ export default function NavBar({
       <Navbar color="light" light fixed="true" expand="lg">
         <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
           <img
-            src="./bike.png"
+            src="/bike.png"
             alt="bike"
             height={50}
             style={{ marginRight: "8px" }}
