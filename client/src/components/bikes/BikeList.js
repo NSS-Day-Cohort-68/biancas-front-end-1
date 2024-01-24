@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import BikeCard from "./BikeCard"
 import { getBikes, getBikesByUser } from "../../managers/bikeManager"
+import { Link } from "react-router-dom"
+import { Button } from "reactstrap"
 
 export default function BikeList({ setDetailsBikeId, user }) {
   const [bikes, setBikes] = useState([])
@@ -20,6 +22,13 @@ export default function BikeList({ setDetailsBikeId, user }) {
   return (
     <>
       <h2>Bikes</h2>
+
+      <Link to="/newbike">
+        <Button color="primary" style={{ marginBottom: "12px" }}>
+          New Bike
+        </Button>
+      </Link>
+
       {bikes.map((bike) => (
         <BikeCard
           bike={bike}

@@ -29,6 +29,10 @@ export default function BikeCard({ bike, setDetailsBikeId }) {
         >
           Show Details
         </Button>
+
+        <Button color="danger" style={{ float: "right" }}>
+          Delete
+        </Button>
       </CardBody>
     </Card>
   )
