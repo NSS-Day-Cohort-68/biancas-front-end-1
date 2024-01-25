@@ -167,7 +167,7 @@
     {
       "id": 2,
       "dateInitiated": "2024-01-10T10:15:00Z",
-      "dateCompleted": "2024-01-25T15:05:49.915Z",
+      "dateCompleted": "",
       "description": "Chain repair",
       "bikeId": 2
     },
@@ -216,7 +216,7 @@
     {
       "id": 9,
       "dateInitiated": "2023-08-25T12:00:00Z",
-      "dateCompleted": "2024-01-25T15:05:51.199Z",
+      "dateCompleted": "",
       "description": "Gravel tire replacement",
       "bikeId": 9
     },
@@ -254,48 +254,6 @@
       "dateCompleted": "2023-12-15T17:45:00Z",
       "description": "Commuter chain maintenance",
       "bikeId": 8
-    },
-    {
-      "dateInitiated": "2024-01-25T15:00:14.159Z",
-      "dateCompleted": "2024-01-25T15:00:17.108Z",
-      "description": "Bruh",
-      "bikeId": 1,
-      "id": 15
-    },
-    {
-      "dateInitiated": "2024-01-25T15:01:40.689Z",
-      "dateCompleted": "2024-01-25T15:01:58.939Z",
-      "description": "Bruh",
-      "bikeId": 1,
-      "id": 16
-    },
-    {
-      "dateInitiated": "2024-01-25T15:02:02.522Z",
-      "dateCompleted": "2024-01-25T15:02:25.688Z",
-      "description": "Bruh",
-      "bikeId": 1,
-      "id": 17
-    },
-    {
-      "dateInitiated": "2024-01-25T15:02:28.988Z",
-      "dateCompleted": "2024-01-25T15:05:36.266Z",
-      "description": "Bruh",
-      "bikeId": 1,
-      "id": 18
-    },
-    {
-      "dateInitiated": "2024-01-25T15:05:39.616Z",
-      "dateCompleted": "",
-      "description": "Bruh",
-      "bikeId": 1,
-      "id": 19
-    },
-    {
-      "dateInitiated": "2024-01-25T15:05:46.399Z",
-      "dateCompleted": "",
-      "description": "Bruh",
-      "bikeId": 3,
-      "id": 20
     }
   ]
 }
