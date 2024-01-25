@@ -19,6 +19,7 @@ export default function BikeDetails({
   setDetailsBikeId,
   user,
   getAllWorkOrders,
+  getInventory,
 }) {
   const [bike, setBike] = useState(null)
   const navigate = useNavigate()
@@ -53,6 +54,8 @@ export default function BikeDetails({
                 if (!!detailsBikeId) {
                   getBikeDetails(detailsBikeId)
                 }
+
+                getInventory()
               })
             }}
           >

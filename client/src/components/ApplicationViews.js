@@ -9,7 +9,11 @@ import { WorkOrders } from "./work-orders/WorkOrders"
 import { BikeTypes } from "./bike-types/BikeTypes"
 import Users from "./users/Users"
 
-export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
+export default function ApplicationViews({
+  loggedInUser,
+  setLoggedInUser,
+  getInventory,
+}) {
   return (
     <Routes>
       <Route path="/">
@@ -17,7 +21,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           index
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <Bikes loggedInUser={loggedInUser} />
+              <Bikes loggedInUser={loggedInUser} getInventory={getInventory} />
             </AuthorizedRoute>
           }
         />
@@ -25,7 +29,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           path="bikes"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <Bikes loggedInUser={loggedInUser} />
+              <Bikes loggedInUser={loggedInUser} getInventory={getInventory} />
             </AuthorizedRoute>
           }
         />
@@ -33,7 +37,10 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           path="workorders"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <WorkOrders loggedInUser={loggedInUser} />
+              <WorkOrders
+                loggedInUser={loggedInUser}
+                getInventory={getInventory}
+              />
             </AuthorizedRoute>
           }
         />
@@ -49,7 +56,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           path="neworder/:bikeId"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <NewWorkOrder user={loggedInUser} />
+              <NewWorkOrder user={loggedInUser} getInventory={getInventory} />
             </AuthorizedRoute>
           }
         />

@@ -3,7 +3,7 @@ import BikeDetails from "../bikes/BikeDetails"
 import { WorkOrderList } from "./WorkOrderList"
 import { getWorkOrders } from "../../managers/workOrderManager"
 
-export const WorkOrders = ({ loggedInUser }) => {
+export const WorkOrders = ({ loggedInUser, getInventory }) => {
   const [woBikeId, setWoBikeId] = useState(null)
   const [allWorkOrders, setAllWorkOrders] = useState([])
 
@@ -38,6 +38,7 @@ export const WorkOrders = ({ loggedInUser }) => {
             setDetailsBikeId={setWoBikeId}
             user={loggedInUser}
             getAllWorkOrders={getAllWorkOrders}
+            getInventory={getInventory}
           />
         </div>
       </div>
