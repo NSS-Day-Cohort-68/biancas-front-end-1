@@ -7,7 +7,7 @@ import {
   findOpenWorkOrder,
 } from "../../managers/workOrderManager"
 
-export const NewWorkOrder = ({ user }) => {
+export const NewWorkOrder = ({ user, getInventory }) => {
   const { bikeId } = useParams()
   const [bike, setBike] = useState(null)
   const [description, setDescription] = useState("")
@@ -64,9 +64,10 @@ export const NewWorkOrder = ({ user }) => {
                 dateCompleted: "",
                 description,
                 bikeId: bike.id,
+              }).then(() => {
+                getInventory()
+                navigate("/")
               })
-
-              navigate("/")
             }
           }}
         >
